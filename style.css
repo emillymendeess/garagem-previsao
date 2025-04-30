@@ -1,0 +1,182 @@
+/* ======================================== */
+/* Garage List (Layout Atualizado)          */
+/* ======================================== */
+#lista-garagem { list-style: none; padding: 0; margin: 0; }
+
+/* MUDE DE: */
+/*
+#lista-garagem li.veiculo-list-item { ... }
+#lista-garagem li .veiculo-info { ... }
+#lista-garagem li .veiculo-info p { ... }
+#lista-garagem li .veiculo-actions { ... }
+
+#lista-garagem button.btn-detalhes /*{
+ /*composes: btn btn-success btn-sm;/*
+}
+*/
+
+/* PARA: (Simplesmente remova a regra comentada problematica) */
+#lista-garagem li.veiculo-list-item { /* Aplica a itens com a classe */
+    background: var(--list-item-bg);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid var(--list-item-border-color);
+    flex-wrap: wrap;
+}
+#lista-garagem li .veiculo-info { flex-grow: 1; margin-right: var(--spacing-md); }
+#lista-garagem li .veiculo-info p { margin: 0; }
+#lista-garagem li .veiculo-actions { display: flex; flex-shrink: 0; gap: var(--spacing-sm); }
+
+/* A regra para #lista-garagem button.btn-detalhes não é mais necessária
+   SE você adicionou as classes .btn .btn-success .btn-sm ao botão no HTML/JS.
+   Se não adicionou as classes, você precisaria recriar os estilos aqui: */
+/*
+#lista-garagem button.btn-detalhes {
+     background-color: var(--success-color);
+     border-color: var(--success-border-color);
+     color: var(--text-light-color);
+     padding: var(--button-sm-padding-vertical) var(--button-sm-padding-horizontal);
+     font-size: var(--font-size-sm);
+     margin: 0; /* Remove margem base do .btn se não estiver usando a classe
+     cursor: pointer;
+     border-radius: var(--border-radius-sm);
+     transition: var(--transition-base);
+     line-height: 1.2;
+     text-align: center;
+     vertical-align: middle;
+}
+ #lista-garagem button.btn-detalhes:hover {
+     background-color: var(--success-hover-color);
+     border-color: color-mix(in srgb, var(--success-border-color) 80%, black);
+     opacity: 1;
+ }
+*/
+
+#lista-garagem p:only-child { /* Mensagem de garagem vazia */
+    font-style: italic; color: var(--text-color); text-align: center; padding: var(--spacing-lg);
+}
+/* ... resto do CSS ... */
+/* ... (Estilos existentes) ... */
+
+/* ======================================== */
+/* Weather Planner Section (Novo)           */
+/* ======================================== */
+#weather-planner-section {
+    background-color: #e7f5ff; /* Fundo azul claro */
+    border: 1px solid #b3d7ff;
+    border-radius: var(--border-radius-md);
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+}
+
+#weather-planner-section h2 {
+    color: #0056b3; /* Azul escuro para o título */
+    margin-bottom: var(--spacing-lg);
+    text-align: left;
+    border-bottom: 1px solid #b3d7ff;
+    padding-bottom: var(--spacing-sm);
+}
+
+.weather-form {
+    display: flex;
+    align-items: center; /* Alinha label, input e botão */
+    gap: var(--spacing-md); /* Espaço entre elementos */
+    flex-wrap: wrap; /* Quebra linha se não couber */
+    margin-bottom: var(--spacing-lg);
+}
+
+.weather-form label {
+    margin-bottom: 0; /* Remove margem padrão do label */
+    flex-shrink: 0; /* Não deixa o label encolher */
+}
+
+.weather-form input[type="text"] {
+    flex-grow: 1; /* Input ocupa espaço disponível */
+    min-width: 150px; /* Largura mínima */
+    margin-bottom: 0; /* Remove margem padrão */
+}
+
+.weather-form button {
+    margin: 0; /* Remove margem base do .btn */
+    flex-shrink: 0;
+}
+
+#previsao-tempo-resultado {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: #fff;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-light-color);
+    min-height: 50px; /* Altura mínima para feedback */
+    text-align: left;
+}
+
+#previsao-tempo-resultado h4 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+#previsao-tempo-resultado p {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+}
+
+.weather-details {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.weather-icon {
+    width: 60px; /* Tamanho do ícone */
+    height: 60px;
+    background-color: var(--list-item-bg); /* Fundo para destacar */
+    border-radius: 50%; /* Ícone redondo */
+}
+
+.weather-text {
+    flex-grow: 1;
+}
+
+/* ======================================== */
+/* API Details Section (Ajustes Opcionais)  */
+/* ======================================== */
+#api-details-section {
+    background-color: var(--api-details-bg); /* Mantém fundo distinto */
+    /* ... (outros estilos existentes) ... */
+}
+
+/* ... (Restante do CSS existente, incluindo media queries) ... */
+
+@media (max-width: 600px) {
+    /* ... (media queries existentes) ... */
+
+    .weather-form {
+        flex-direction: column; /* Empilha no mobile */
+        align-items: stretch; /* Estica para largura total */
+    }
+    .weather-form label {
+         margin-bottom: var(--spacing-sm); /* Adiciona espaço abaixo do label */
+    }
+     .weather-form input[type="text"] {
+         width: 100%;
+         margin-bottom: var(--spacing-md); /* Espaço antes do botão */
+     }
+     .weather-form button {
+        align-self: flex-start; /* Alinha botão à esquerda */
+     }
+
+     .weather-details {
+        flex-direction: column; /* Empilha ícone e texto */
+        align-items: flex-start;
+     }
+     .weather-icon {
+         margin-bottom: var(--spacing-sm);
+     }
+}
